@@ -497,7 +497,28 @@
             <em>re-add</em>.</p>
           </section>
 
-          <!-- TODO: `previousValues` -->
+          <section>
+            <h2>removedItem</h2>
+            <pre><code contenteditable class=javascript>
+  {
+    removedItem: function (array, item, changeMeta, instanceMeta) {
+      return array;
+    }
+  }
+            </code></pre>
+          </section>
+
+          <section>
+            <p>During removes resulting from modifications,
+            <em>`changedMeta`</em> also contains <em>`previousValues`</em>, a
+            POJO with the old values.</p>
+          </section>
+
+
+          <section>
+            <p>This can help you eg both remove and add an item from a sorted
+            array in O(lg n).</p>
+          </section>
         </section>
 
         <section>
