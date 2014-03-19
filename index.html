@@ -81,7 +81,7 @@
           </section>
 
           <section>
-            <pre><code contenteditable>
+            <pre><code contenteditable class=javascript>
   var Person = Ember.Object.extend({
     loudName: function () {
       return this.get('name').toUpperCase();
@@ -432,7 +432,7 @@
             <p><em>`item`</em> is an item that has been added to a dependent
             array.<p>
 
-            <p><em>`changeMeta</em> contains metadata about the CP.  For
+            <p><em>`changeMeta`</em> contains metadata about the CP.  For
             <em>`addedItem`</em> this includes:</p>
 
             <ul>
@@ -787,10 +787,10 @@
 
     if (!instanceMeta.itemCounts[guid]) {
       instanceMeta.itemCounts[guid] = 1;
+      set.addObject(item);
     } else {
       ++instanceMeta.itemCounts[guid];
     }
-    set.addObject(item);
     return set;
   }
             </code></pre>
@@ -798,7 +798,7 @@
 
           <section>
             <pre><code contenteditable class=javascript>
-  removedItem: function(set, item, _, instanceMeta) {
+  removedItem: function(set, item, changeMeta, instanceMeta) {
     var guid = guidFor(item),
         itemCounts = instanceMeta.itemCounts;
 
